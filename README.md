@@ -5,8 +5,6 @@
 ![AI](https://img.shields.io/badge/AI-Google%20Gemini%20%26%20OpenAI-4285F4?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Published-brightgreen?style=flat-square)
 
----
-
 ## 1. 📋 Overview
 
 **Calories Counting** is a real-world example of what becomes possible when you combine two modern AI-first approaches: **n8n workflow automation** and **Vibe Coding**.
@@ -27,6 +25,17 @@ The result is a fully functional, production-ready nutrition analyzer built in a
 - 🎙️ Use **voice input** to describe their food
 
 The app returns a detailed nutritional breakdown — including **calories, protein, carbs, fat, and fiber** — for each food item, with total nutrition calculations. Results are available in both **Arabic and English**.
+
+---
+
+## 🛠️ Built With
+
+| Layer | Tool | Role |
+|-------|------|------|
+| ⚙️ **Backend** | [n8n](https://n8n.io/) | Workflow automation — handles all logic, AI routing, and data processing |
+| 🎨 **Frontend** | [Vibe Coding / bolt.new](https://bolt.new/) | AI-generated UI — built by describing the idea, no manual coding |
+| 🤖 **AI (Image)** | [Google Gemini 2.5 Flash](https://openrouter.ai/) via OpenRouter | Analyzes food photos and identifies nutrition |
+| 🤖 **AI (Text)** | [OpenAI GPT](https://platform.openai.com/) | Analyzes text and voice food descriptions |
 
 ---
 
