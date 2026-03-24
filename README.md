@@ -210,4 +210,7 @@ This workflow is designed for anyone who wants to **track their nutrition easily
 ## 👤 Author
 
 **Eng Mohamed Magdy Elghandour**
-AI Automation Engineer
+
+🤖 AI Automation Engineer
+
+
