@@ -1,0 +1,203 @@
+{
+  "name": "Invoice",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "54008f32-ea11-42b3-8318-1ff6f6af3025",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -736,
+        -320
+      ],
+      "id": "89dc6e49-324d-431d-9166-75c4232724df",
+      "name": "Webhook",
+      "webhookId": "54008f32-ea11-42b3-8318-1ff6f6af3025"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Invoice</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap\" rel=\"stylesheet\">\n<style>\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n\n  body {\n    font-family: 'DM Sans', sans-serif;\n    background: #0a0f1e;\n    color: #ffffff;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 40px 20px;\n  }\n\n  .invoice-wrapper {\n    width: 100%;\n    max-width: 620px;\n    animation: rise 0.6s ease both;\n  }\n\n  @keyframes rise {\n    from { opacity: 0; transform: translateY(20px); }\n    to   { opacity: 1; transform: translateY(0); }\n  }\n\n  .top-bar {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 28px;\n  }\n\n  .logo-area {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n  }\n\n  .logo-icon {\n    width: 44px; height: 44px;\n    background: linear-gradient(135deg, #6c63ff, #3ecfcf);\n    border-radius: 12px;\n    display: flex; align-items: center; justify-content: center;\n  }\n\n  .logo-icon svg { width: 22px; height: 22px; fill: white; }\n\n  .logo-text {\n    font-family: 'Syne', sans-serif;\n    font-size: 22px;\n    font-weight: 800;\n    letter-spacing: 0.06em;\n    color: #ffffff;\n  }\n\n  .card {\n    background: #111827;\n    border: 1px solid #1e2a3a;\n    border-radius: 16px;\n    padding: 24px 28px;\n    margin-bottom: 12px;\n    transition: border-color 0.2s;\n  }\n\n  .card:hover { border-color: #2e3f55; }\n\n  .card-label {\n    font-size: 11px;\n    letter-spacing: 0.14em;\n    text-transform: uppercase;\n    color: #4b6080;\n    margin-bottom: 10px;\n    font-weight: 500;\n  }\n\n  .card-value {\n    font-family: 'Syne', sans-serif;\n    font-size: 22px;\n    font-weight: 700;\n    color: #ffffff;\n    line-height: 1.2;\n  }\n\n  .card-value.small {\n    font-size: 16px;\n    font-weight: 500;\n    font-family: 'DM Sans', sans-serif;\n    color: #ffffff;\n  }\n\n  .two-col {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n\n  .two-col .card { margin-bottom: 0; }\n\n  .card.desc-card .card-value {\n    font-size: 15px;\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 400;\n    color: #ffffff;\n    line-height: 1.6;\n  }\n\n  .invoice-footer {\n    margin-top: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 4px;\n  }\n\n  .status-pill {\n    display: inline-flex;\n    align-items: center;\n    gap: 6px;\n    background: rgba(62,207,207,0.1);\n    border: 1px solid rgba(62,207,207,0.3);\n    color: #3ecfcf;\n    border-radius: 100px;\n    padding: 7px 16px;\n    font-size: 11px;\n    font-weight: 600;\n    letter-spacing: 0.08em;\n    text-transform: uppercase;\n  }\n\n  .status-dot {\n    width: 6px; height: 6px;\n    border-radius: 50%;\n    background: #3ecfcf;\n    box-shadow: 0 0 6px #3ecfcf;\n  }\n\n  .footer-note {\n    font-size: 11px;\n    color: #4b6080;\n    text-align: right;\n    line-height: 1.6;\n  }\n\n  @media (max-width: 500px) {\n    .two-col { grid-template-columns: 1fr; }\n    .invoice-footer { flex-direction: column; gap: 14px; align-items: flex-start; }\n  }\n</style>\n</head>\n<body>\n\n<div class=\"invoice-wrapper\">\n\n  <div class=\"top-bar\">\n    <div class=\"logo-area\">\n      <div class=\"logo-icon\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z\"/></svg>\n      </div>\n      <span class=\"logo-text\">INVOICE</span>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-label\">Invoice Number</div>\n    <div class=\"card-value\">{{ $json.body.invoiceNumber }}</div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-label\">Date</div>\n    <div class=\"card-value\">{{ $json.body.date }}</div>\n  </div>\n\n  <div class=\"two-col\">\n    <div class=\"card\">\n      <div class=\"card-label\">Customer Name</div>\n      <div class=\"card-value\">{{ $json.body.customerName }}</div>\n    </div>\n    <div class=\"card\">\n      <div class=\"card-label\">Customer Email</div>\n      <div class=\"card-value small\">{{ $json.body.customerEmail }}</div>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-label\">Amount</div>\n    <div class=\"card-value\">${{ $json.body.amount }}</div>\n  </div>\n\n  <div class=\"card desc-card\">\n    <div class=\"card-label\">Description</div>\n    <div class=\"card-value\">{{ $json.body.description }}</div>\n  </div>\n\n  <div class=\"invoice-footer\">\n    <div class=\"status-pill\">\n      <span class=\"status-dot\"></span>\n      Sent\n    </div>\n    <div class=\"footer-note\">\n      Thank you for your business.<br>\n      {{ $json.body.customerEmail }}\n    </div>\n  </div>\n\n</div>\n\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        -512,
+        -320
+      ],
+      "id": "491a982b-7ff9-43df-a292-5bd0ef5b90de",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pdfshift.io/v3/convert/pdf",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "sk_2625db2c4807ef95860196b3d3305aba600feaaf"
+            },
+            {
+              "name": "Content-Type ",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "source",
+              "value": "={{ $json.html }}"
+            },
+            {
+              "name": "landscape",
+              "value": "false"
+            },
+            {
+              "name": "use_print",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "wikipedia.pdf"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -288,
+        -320
+      ],
+      "id": "5b0a78ad-f5b7-4850-afcf-f350c69a74fa",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "wikipedia.pdf",
+        "name": "=Invoice {{ $('Webhook').item.json.body.invoiceNumber }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -80,
+        -320
+      ],
+      "id": "57cae172-0a97-49e2-a927-183260e4d9e1",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "PGgYsQoiInleib53",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Webhook').item.json.body.customerEmail }}",
+        "subject": "Invoice ",
+        "emailType": "text",
+        "message": "=Hello {{ $('Webhook').item.json.body.customerName }}:\nThank you for trusting us with {{ $('Webhook').item.json.body.description }}\nThis is your invoice for the service. \nHope we work together in the future again.\n{{ $json.webViewLink }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        128,
+        -320
+      ],
+      "id": "75f11196-5ecf-4c0c-ae0c-2247356d895e",
+      "name": "Send a message",
+      "webhookId": "183fe692-4280-4ace-b136-f3d93a6eac2c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "t8bbjUOZDHjNABeZ",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "024a19f3-e392-4ac9-a3aa-ab5632d899c8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1d52e26502ab362c0b60f91c6d37756d0d545fbe1c12904239c10acad5a587bd"
+  },
+  "id": "-qbNdo-Kys2vypmoN52jS",
+  "tags": []
+}
