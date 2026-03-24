@@ -28,6 +28,8 @@ The result is a fully functional, production-ready nutrition analyzer built in a
 
 The app returns a detailed nutritional breakdown — including **calories, protein, carbs, fat, and fiber** — for each food item, with total nutrition calculations. Results are available in both **Arabic and English**.
 
+---
+
 ## 🚀 Live Demo
 
 > **Try it now → [https://calories-counting-im-49ja.bolt.host](https://calories-counting-im-49ja.bolt.host)**
