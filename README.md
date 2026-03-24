@@ -14,7 +14,7 @@
 > 💡 **The idea:** Instead of building everything from scratch with traditional development, the frontend was created using **Vibe Coding** — describing the idea in natural language and letting AI generate the full UI instantly. The backend logic, AI calls, and data processing were all handled through an **n8n workflow**. Two powerful tools, zero traditional coding, one complete product.
 
 This combination means:
-- 🎨 **Vibe Coding** handled the frontend — a beautiful, responsive web app generated from a simple description, published and live instantly
+- 🎨 **Vibe Coding** handled the frontend — a beautiful, responsive web app generated from a simple description, published and live instantly by using https://bolt.new/
 - ⚙️ **n8n** handled the backend — routing requests, calling AI models, and returning structured nutrition data
 - 🤖 **Google Gemini & OpenAI** handled the intelligence — analyzing food photos and text descriptions
 
