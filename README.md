@@ -18,12 +18,6 @@ The app analyzes the meal and returns a detailed nutritional breakdown — inclu
 
 The frontend is a vibe-coded web app — **no installation needed, works instantly in the browser!**
 
-## 🚀 Live Demo
-
-> **Try it now → [https://calories-counting-im-49ja.bolt.host](https://calories-counting-im-49ja.bolt.host)**
->
-> Just open the link and start analyzing your meals immediately. No sign-up, no login, no setup required.
-
 ---
 
 ## 2. 🔄 Workflow Structure
@@ -182,4 +176,16 @@ This workflow is designed for anyone who wants to **track their nutrition easily
 
 ---
 
-*Built with ❤️ using n8n, Google Gemini, and OpenAI*
+## 🚀 Live Demo
+
+> **Try it now → [https://calories-counting-im-49ja.bolt.host](https://calories-counting-im-49ja.bolt.host)**
+>
+> Just open the link and start analyzing your meals immediately. No sign-up, no login, no setup required.
+
+---
+
+## 👤 Author
+
+**Eng Mohamed Magdy Elghandour**
+AI Automation Engineer
+
